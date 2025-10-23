@@ -13,8 +13,8 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Configuration
-CONTRACT_NAME="ConditionalTokens"
-FLATTENED_FILE="ConditionalTokens_flattened.sol"
+CONTRACT_NAME="FixedProductMarketMakerFactory"
+FLATTENED_FILE="FixedProductMarketMakerFactory_flattened.sol"
 
 # Helper functions
 print_header() {
@@ -65,7 +65,7 @@ deploy_to_network() {
     print_header "Deploying to $network"
     check_private_key
     
-    echo "Deploying ConditionalTokens contract to $network..."
+    echo "Deploying FixedProductMarketMakerFactory contract to $network..."
     PRIVATE_KEY=$PRIVATE_KEY truffle migrate --network $network
     
     print_success "Deployment completed!"
@@ -89,7 +89,7 @@ flatten_contract() {
         npm install -g truffle-flattener
     fi
     
-    npx truffle-flattener contracts/ConditionalTokens.sol > $FLATTENED_FILE
+    npx truffle-flattener contracts/FixedProductMarketMakerFactory.sol > $FLATTENED_FILE
     print_success "Contract flattened to $FLATTENED_FILE"
     
     # Show file info
